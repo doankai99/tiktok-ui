@@ -1,24 +1,54 @@
+// import React from 'react';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Home from './Page/Home';
+// import Following from './Page/Following';
+// import './App.css';
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <div className="App">
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/following" element={<Following />} />
+//         </Routes>
+//       </div>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
 import React from 'react';
-import logo from './logo.svg';
+import { Fragment } from 'react';
+import { Routes, Route } from 'react-router-dom';
+// import Home from './Page/Home';
+// import Following from './Page/Following';
+import { publicRoutes } from './Routes';
+import { DefaultLayout } from './Components/Layout';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {/* <Route path="/" element={<Home />} />
+        <Route path="/following" element={<Following />} /> */}
+        {publicRoutes.map((item, index) => {
+          const Layout = item.layout === null ? Fragment : DefaultLayout;
+          const Page = item.component;
+          return (
+            <Route
+              key={index}
+              path={item.path}
+              element={
+              <Layout>
+                <Page />
+              </Layout>
+            }
+            />
+          );
+        })}
+      </Routes>
     </div>
   );
 }
