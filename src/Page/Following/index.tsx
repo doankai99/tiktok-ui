@@ -1,6 +1,7 @@
+import Content from "../Content";
 function Following() {
     return ( 
-        <h2>Following page</h2>
+        <Content/>
      );
 }
 

@@ -34,7 +34,14 @@ function App() {
         {/* <Route path="/" element={<Home />} />
         <Route path="/following" element={<Following />} /> */}
         {publicRoutes.map((item, index) => {
-          const Layout = item.layout === null ? Fragment : DefaultLayout;
+          // const Layout = item.layout === null ? Fragment : DefaultLayout;
+          let Layout = DefaultLayout;
+          if(item.layout) {
+            Layout = item.layout;
+          }else if(item.layout === null){
+            Layout = Fragment as any;
+            // Layout = ({ children }) => <Fragment>{children}</Fragment>;
+          }
           const Page = item.component;
           return (
             <Route

@@ -1,7 +1,9 @@
+import Content from "../Content";
+
 function Home() {
     return ( 
-        <h2>Home page</h2>
-     );
+        <Content/>
+    );
 }
 
 export default Home;
