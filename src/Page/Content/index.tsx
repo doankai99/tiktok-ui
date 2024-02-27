@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { HeartFilled, HeartOutlined, MessageOutlined, ShareAltOutlined } from "@ant-design/icons";
+import Comment from "./comment";
 
 function Content() {
     const [randomImageUrl, setRandomImageUrl] = useState("");
     const [isFollowing, setIsFollowing] = useState(false);
     const [liked, setLiked] = useState(false);
+    const [comment, setComment] = useState(false);
     useEffect(() => {
         fetch("https://source.unsplash.com/random/150x150")
             .then((response) => {
@@ -33,7 +35,11 @@ function Content() {
     }
     
     const openPopupComment = () => {
-        alert('Open Comment Popup');
+        if(comment) {
+            setComment(false);
+        }else{
+            setComment(true);
+        }
     }
     // useEffect(() => {} , []);
     return ( 
@@ -63,13 +69,16 @@ function Content() {
                     </video>
                 </div>
                 <div className="flex gap-4">
-                    <div onClick={handleLike}>
+                    <button onClick={handleLike}>
                         {liked ? <HeartFilled /> : <HeartOutlined />}
-                    </div>
-                    <div><MessageOutlined /></div>
-                    <div><ShareAltOutlined /></div>
+                    </button>
+                    <button onClick={openPopupComment}><MessageOutlined /></button>
+                    <button><ShareAltOutlined /></button>
                 </div>
             </div>
+            {comment && (
+            <Comment showComment={comment} />
+            )}
             <div className="w-full p-4">
                 <div className="flex w-full p-4 justify-between items-center">
                     <div className="flex gap-2">
@@ -93,12 +102,15 @@ function Content() {
                     </video>
                 </div>
                 <div className="flex gap-4">
-                    <div onClick={handleLike}>
+                    <button onClick={handleLike}>
                         {liked ? <HeartFilled /> : <HeartOutlined />}
-                    </div>
-                    <div onClick={openPopupComment}><MessageOutlined /></div>
-                    <div><ShareAltOutlined /></div>
+                    </button>
+                    <button onClick={openPopupComment}><MessageOutlined /></button>
+                    <button><ShareAltOutlined /></button>
                 </div>
+                {comment && (
+                    <Comment showComment={comment} />
+                )}
             </div>
         </>
     );

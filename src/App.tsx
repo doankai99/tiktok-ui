@@ -29,7 +29,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-raven">
       <Routes>
         {/* <Route path="/" element={<Home />} />
         <Route path="/following" element={<Following />} /> */}

@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 function DefaultLayout({ children } : { children: ReactNode }) {
     return ( 
         <div className='flex flex-col items-center gap-4'>
-            <div className='w-9/12'>
+            <div className='w-9/12 z-50'>
                 <Header />
             </div>
             <div className="w-9/12 flex gap-4">

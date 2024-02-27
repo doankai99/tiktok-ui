@@ -22,6 +22,7 @@ module.exports = {
         'raven:': '#747C8B',
         'seashell': '#FFF8F2',
         'gray': '#f5f5f5',
+        'blue': '#3385ff',
       },
       minHeight: {
         '200': '12.5rem',
@@ -31,8 +32,10 @@ module.exports = {
       maxHeight: {
         '128': '8rem', // 128px
         '200': '12.5rem', // 200px
+        '280': '17.5rem', // 280px
         '300': '18.75rem', // 300px 
         '320' : '20rem', // 320px
+        '384': '24rem', // 384px
         '400': '25rem', // 400px
         '512': '32rem', // 512px
         '640': '40rem', // 640px
