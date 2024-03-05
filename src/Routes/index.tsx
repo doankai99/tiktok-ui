@@ -7,7 +7,7 @@ import Friends from "../Page/Friends";
 
 //Layouts
 import HeaderOnly from "../Components/Layout/HeaderOnly";
-const publicRoutes = [
+export const publicRoutes = [
     {
         path: "/",
         component: Home,
@@ -36,19 +36,4 @@ const publicRoutes = [
     },
 ];
 
-export { publicRoutes};
-
-// function Routes() {
-//     return ( 
-//         <h2>Routes page</h2>
-//      );
-// }
-
-// export default Routes;
-
-//Public and private routes
-// interface RouteItem {
-//     path: string;
-//     component: React.ComponentType<any>;
-//     layout?: React.ComponentType<any>;
-//   }
+// export { publicRoutes};

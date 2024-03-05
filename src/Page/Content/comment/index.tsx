@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Comment({showComment} : {showComment: boolean}) {
+export function Comment({showComment} : {showComment: boolean, index: number}) {
     const [randomImageUrl, setRandomImageUrl] = useState("");
     useEffect(() => {
         fetch("https://source.unsplash.com/random/150x150")
@@ -39,5 +39,3 @@ function Comment({showComment} : {showComment: boolean}) {
         return null;
     }
 }
-
-export default Comment;
